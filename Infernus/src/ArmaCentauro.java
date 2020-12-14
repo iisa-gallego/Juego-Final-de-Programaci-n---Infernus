@@ -1,20 +1,20 @@
 import processing.core.PApplet;
 import processing.core.PImage;
 
-public class MounstruoAire extends Villano {
-	PImage remolino;
+public class ArmaCentauro extends Villano {
+	PImage flecha;
 	protected boolean estado0, estado1;
 
-	public MounstruoAire(int x, int y, PApplet app) {
+	public ArmaCentauro(int x, int y,PApplet app) {
 		super(x, y);
-		remolino = app.loadImage("Remolino.png");
+		flecha = app.loadImage("Flechas.png");
 		this.estado0 = true;
 		this.estado1 = false;
 	}
 
 	@Override
 	public void pintar(PApplet app) {
-		app.image(remolino, x, y);
+		app.image(flecha, x, y);
 	}
 	
 	@Override
@@ -23,6 +23,13 @@ public class MounstruoAire extends Villano {
 		if(x<=-50) {
 			x=1000;
 		}
+		if(x<=550) {
+			y+=(int) (Math.random()*2);
+		}
+		if(y>=650) {
+			y=0;
+		}
+		
 	}
 
 	public int getX() {
